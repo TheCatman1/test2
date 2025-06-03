@@ -1,0 +1,406 @@
+/* Предотвращаем FOUC */
+body {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  body[data-theme] {
+    opacity: 1;
+  }
+
+/* ===== Глобальные стили ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* ===== Цветовые темы ===== */
+:root {
+    /* Светлая тема */
+    --bg-primary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --accent-color: #6a11cb;
+    --header-bg: rgba(248, 249, 250, 0.9);
+    --card-bg: #ffffff;
+    --card-hover: #f0f0f0;
+    --nav-hover: #4d00b3;
+    --footer-bg: #e9ecef;
+    --footer-border: #6a11cb;
+    --section-accent: #8a2be2;
+    --language-bg: #e9ecef;
+}
+
+[data-theme="dark"] {
+    /* Темная тема */
+    --bg-primary: #1e1e2f;
+    --text-primary: #f4f4f9;
+    --accent-color: #ffcc00;
+    --header-bg: rgba(30, 30, 30, 0.9);
+    --card-bg: #2c2c3d;
+    --card-hover: #38384a;
+    --nav-hover: #ffdd40;
+    --footer-bg: #20232a;
+    --footer-border: #6a11cb;
+    --section-accent: #ffcc00;
+    --language-bg: #2c2c3d;
+}
+
+/* ===== Хедер ===== */
+header {
+    background: var(--header-bg);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.5s ease;
+}
+
+header h1 {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+}
+
+nav a:hover {
+    color: var(--nav-hover);
+    border-bottom: 2px solid var(--nav-hover);
+}
+
+/* ===== Основной контент ===== */
+.section {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: left;
+}
+
+.section h2 {
+    color: var(--section-accent);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: var(--section-accent);
+    font-size: 1.5rem;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+.centered {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--section-accent);
+}
+
+/* ===== Карточки ===== */
+.card {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    align-items: stretch;
+}
+
+.card-item {
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 250px;
+    height: 320px;
+    padding: 20px;
+    text-align: center;
+    overflow: visible;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.5s ease;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.card-item:hover {
+    transform: translateY(-10%);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    background: var(--card-hover);
+}
+
+.card-item img {
+    width: 50%;
+    position: relative;
+    top: 0;
+    margin: 0 auto 15px;
+    display: block;
+    transition: transform 0.3s, top 0.3s;
+    z-index: 1;
+}
+
+.card-item:hover img {
+    top: -15%;
+    transform: scale(1.1);
+}
+
+.card-item p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    opacity: 0.8;
+    transition: color 0.3s ease;
+}
+
+.card-item h3 {
+    margin: 20px 0 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    line-height: 1.5rem;
+    height: 3rem;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+/* ===== Кнопки ===== */
+button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--nav-hover);
+    transform: translateY(-2px);
+}
+
+/* ===== Футер ===== */
+footer {
+    background: var(--footer-bg);
+    color: var(--text-primary);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 3px solid var(--footer-border);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+footer a {
+    color: var(--footer-border);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+/* ===== Логотип ===== */
+.logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.logo-img {
+    height: 1em;
+    width: auto;
+    vertical-align: middle;
+    transform: translateY(1px);
+}
+
+.logo span:last-child {
+    margin-left: 10px;
+}
+
+/* ===== Переключатель языка ===== */
+.language-switcher {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    right: 50px;
+    top: 50px;
+}
+
+.selected-language {
+    display: flex;
+    align-items: center;
+}
+
+.language-switcher select {
+    background: var(--language-bg);
+    color: var(--text-primary);
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+    border: 1px solid var(--accent-color);
+}
+
+.language-switcher select:hover {
+    background: var(--card-hover);
+}
+
+.language-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    margin-top: 5px;
+    z-index: 1000;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    transition: background 0.3s;
+    color: var(--text-primary);
+}
+
+.language-option:hover {
+    background-color: var(--card-hover);
+}
+
+.flag-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* ===== Переключатель темы ===== */
+#theme-toggle {
+    position: fixed;
+    bottom: -700px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-icon {
+    transition: transform 0.5s ease;
+}
+
+/* ===== Анимации и эффекты ===== */
+::selection {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .language-switcher {
+        right: 20px;
+        top: 20px;
+    }
+    
+    #theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+.theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  }
+  
+  /* Для переключателя темы */
+  #theme-toggle {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }

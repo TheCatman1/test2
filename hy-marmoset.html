@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marmoset սկսնակների համար</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Assets/Blender_icon.png" type="image/png">
+    <style>
+        /* Предотвращение мерцания */
+        body:not([data-theme]) { opacity: 0; }
+        body[data-theme] { opacity: 1; transition: opacity 0.4s; }
+      </style>
+      <script>
+        // Установка темы ДО загрузки страницы
+        document.documentElement.setAttribute('data-theme',
+          localStorage.getItem('theme') || 
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        );
+      </script>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <h1 class="logo">
+                3<img src="Assets/Blender_D.png" alt="D" class="logo-img">
+                <span>Spark</span>
+            </h1>
+            <nav>
+                <a href="hy-index.html">Գլխավոր</a>
+                <a href="hy-index.html#lessons">Դասեր</a>
+                <a href="hy-contact.html">Կապ</a>
+                <div class="language-switcher" onclick="toggleLanguageMenu()">
+                    <div class="selected-language">
+                        <img id="current-flag" src="Assets/hy_rounded_flag.png" alt="Flag" class="flag-icon">
+                        <span id="current-language">Հայերեն</span>
+                    </div>
+                    <div class="language-menu" id="language-menu">
+                        <div class="language-option" onclick="changeLanguage('ru')">
+                            <img src="Assets/ru_rounded_flag.png" alt="Russian Flag" class="flag-icon">
+                            <span>русский</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('en')">
+                            <img src="Assets/gb_rounded_flag.png" alt="English Flag" class="flag-icon">
+                            <span>English</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">
+            <span class="theme-icon">🌙</span>
+          </button>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="centered">Ի՞նչ է Marmoset-ը</h1>
+            <h2>Marmoset-ի հիմնական հնարավորությունները</h2>
+            <p>Marmoset Toolbag-ը ժամանակակից գործիք է 3D մոդելների իրական ժամանակում արտապատկերման համար։ Այն օգտագործվում է նկարիչների և դիզայներների կողմից՝ մոդելների ցուցադրության, պորտֆոլիո ստեղծելու և նյութերի արագ նախադիտման համար։</p>
+            
+            <h3>1. Ինչու սովորել Marmoset</h3>
+            <p> Իրական տեսք ունեցող արտապատկերում — ստանում ես վերջնական պատկեր, ինչպես խաղում կամ անիմացիայում։</p>
+            <ul>
+                <li><strong>Հասանելի ինտերֆեյս</strong> — ամեն ինչ կարող ես տեղափոխել մկնիկով, կոդ գրելու կարիք չկա։</li>
+                <li><strong>Ներմուծում Blender / ZBrush / Maya-ից</strong> — աջակցում է հայտնի ֆորմատներ։</li>
+                <li><strong>Լուսավորության և նյութերի կարգավորում</strong> — կարող ես ընտրել HDRI-տեսարան, փոխել roughness, metallic և այլն։</li>
+                <li><strong>Արագ արտահանում տեսանյութ կամ gif</strong> — իդեալական պորտֆոլիոյի համար։</li>
+            </ul>
+
+            <h3>2. Ինչ կսովորես</h3>
+            <ul>
+                <li>Ներմուծել մոդելներ Blender-ից կամ այլ ծրագրերից։</li>
+                <li>Ստեղծել PBR նյութեր (albedo, normal, roughness, metallic և այլն)։</li>
+                <li>Կարգավորել HDRI լուսավորություն և ձեռքով լույսեր։</li>
+                <li>Արտապատկերել պատկեր կամ անիմացիա (պտտում, խցիկի մոտեցում և այլն)։</li>
+                <li>Արտահանել տեսարանը Marmoset Web Viewer-ի ֆորմատով (iframe կայքի համար)։</li>
+            </ul>
+
+            <h3>3. Հիմնական գործառույթներ</h3>
+            <ul>
+                <li>Իրական ժամանակի արտապատկերում՝ SSAO, Bloom, DOF էֆեկտներով</li>
+                <li>Ինտերակտիվ լուսավորություն, ստվերներ, արտացոլումներ</li>
+                <li>Հարմար նյութերի խմբագիր (աջակցում է transparency և subsurface scattering)</li>
+                <li>Խցիկ՝ depth of field, motion blur, field of view</li>
+                <li>Աջակցում է Web Viewer-ին (ներդրվում է կայքում որպես ինտերակտիվ 3D տեսարան)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 3D Spark։ Բոլոր իրավունքները պաշտպանված են։</p>
+    </footer>
+    <script src="js/lang.js"></script>
+    <script src="js/themes.js"></script>
+</body>
+</html>

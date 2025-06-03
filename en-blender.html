@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender for beginners</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Assets/Blender_icon.png" type="image/png">
+    <style>
+        /* Предотвращение мерцания */
+        body:not([data-theme]) { opacity: 0; }
+        body[data-theme] { opacity: 1; transition: opacity 0.4s; }
+      </style>
+      <script>
+        // Установка темы ДО загрузки страницы
+        document.documentElement.setAttribute('data-theme',
+          localStorage.getItem('theme') || 
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        );
+      </script>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <h1 class="logo">
+                3<img src="Assets/Blender_D.png" alt="D" class="logo-img">
+                <span>Spark</span>
+            </h1>
+            <nav>
+                <a href="en-index.html">Home page</a>
+                <a href="en-index.html#lessons">Lessons</a>
+                <a href="en-contact.html">Cantacts</a>
+                </div>
+                <div class="language-switcher" onclick="toggleLanguageMenu()">
+                    <div class="selected-language">
+                        <img id="current-flag" src="Assets/gb_rounded_flag.png" alt="Flag" class="flag-icon">
+                        <span id="current-language">English</span>
+                    </div>
+                    <div class="language-menu" id="language-menu">
+                        <div class="language-option" onclick="changeLanguage('ru')">
+                            <img src="Assets/ru_rounded_flag.png" alt="Russian Flag" class="flag-icon">
+                            <span>русский</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('hy')">
+                            <img src="Assets/hy_rounded_flag.png" alt="Armenian Flag" class="flag-icon">
+                            <span>Հայերեն</span>
+                        </div>
+            </nav>
+        </div>
+        <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">
+            <span class="theme-icon">🌙</span>
+          </button>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="centered">more about Blender</h1>
+            <h2>The main features of Blender</h2>
+            <p>Blender — is a free and open source program for 3D modeling, animation, rendering, video editing and creating 2D animated projects. It is used by both amateurs and professionals to create 3D objects, animations, visual effects and games.</p>
+            
+            <h3>1. 3D modeling</h3>
+            <p>Blender provides powerful tools for modeling 3D objects. You can create and edit geometric shapes using various methods such as:</p>
+            <ul>
+                <li><strong>Polygonal modeling</strong> — creating objects using vertices, edges and faces.</li>
+                <li><strong>Sculpting</strong> — allows you to mold the details of a 3D object as if you were working with clay.</li>
+                <li><strong>Procedural modeling</strong> — creating objects using modifiers and various procedural tools.</li>
+            </ul>
+
+            <h3>2. Animation</h3>
+            <p>Blender has an advanced animation system. You can use it to:</p>
+            <ul>
+                <li><strong>Create character animations</strong> using rigging (skeletal animation).</li>
+                <li><strong>Camera and object animation</strong> to create complex scenes.</li>
+                <li><strong>Working with key personnel</strong> — The basis of animation, where you set the position of objects on specific frames.</li>
+            </ul>
+
+            <h3>3. materials and textures</h3>
+            <p>In Blender, you can create and customize materials for objects to make them look more realistic. You can also work with textures for surfaces using a variety of tools:</p>
+            <ul>
+                <li><strong>UV-sweep</strong> — the process of “opening” a 3D object to apply textures to it.</li>
+                <li><strong>Shaders and patterns</strong> to create various visual effects such as reflections, transparency, etc.</li>
+            </ul>
+
+            <h3>4. Rendering</h3>
+            <p>Blender includes several rendering engines:</p>
+            <ul>
+                <li><strong>Cycles</strong> — physically correct rendering using ray tracing to achieve a high degree of realism.</li>
+                <li><strong>Eevee</strong> — real-time rendering that allows you to see the result quickly.</li>
+                <li><strong>Workbench</strong> — main renderer for quick view of the scene during modeling.</li>
+            </ul>
+
+            <h3>5. Simulations and effects</h3>
+            <p>Blender supports simulations to create a variety of effects:</p>
+            <ul>
+                <li><strong>Fluid Simulation</strong> — Global and local fluid physics.</li>
+                <li><strong>Fabric simulation</strong> — Creating animations for objects that lend themselves to shape changes.</li>
+                <li><strong>Hair and wool modeling</strong>, as well as their animation.</li>
+            </ul>
+
+            <h3>6. Video editing</h3>
+            <p>Blender includes a video editor that allows you to:</p>
+            <ul>
+                <li>Trim, combine and edit videos.</li>
+                <li>Add sound effects.</li>
+                <li>Apply various transitions and special effects.</li>
+            </ul>
+
+            <h3>7. Interface and customization</h3>
+            <p>Blender has a fully customizable interface that allows you to rearrange windows, use different workspaces for modeling, animation and rendering.</p>
+
+            <h2>How do I get started with Blender?</h2>
+            <p>To get started with Blender, you'll need:</p>
+            <ul>
+                <li><strong>Download Blender</strong> on the official <a href="https://www.blender.org/download/" target="_blank">website</a> and install it on your operating system.</li>
+                <li><strong>Learn the basics of the interface</strong> and learn basic modeling tools.</li>
+                <li><strong>Start with simple objects</strong>, such as cubes or spheres to get used to working with the program.</li>
+                <ul>
+                    <li>
+                      <strong style="cursor: pointer; color: #0073e6;" onclick="toggleMiro()">Take training courses</strong> — Many online courses and video tutorials will help you master all Blender features step by step.
+                      <div id="miroEmbed" style="display: none; margin-top: 15px;">
+                        <iframe 
+                          width="100%" 
+                          height="600" 
+                          src="https://miro.com/app/live-embed/uXjVPvgwpmw=/?autoplay=true" 
+                          frameborder="0" 
+                          scrolling="no" 
+                          allowfullscreen
+                          style="border: 2px solid #ccc; border-radius: 10px;">
+                        </iframe>
+                      </div>
+                    </li>
+                  </ul>
+                  
+                  <script>
+                    function toggleMiro() {
+                      const miro = document.getElementById('miroEmbed');
+                      miro.style.display = miro.style.display === 'none' ? 'block' : 'none';
+                    }
+                  </script>
+                  
+
+                  </section>
+                  
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 3D Spark. All rights reserved.</p>
+    </footer>
+    <script src="js/lang.js"></script>
+    <script src="js/themes.js"></script>
+</body>
+</html>
