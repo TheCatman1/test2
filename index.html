@@ -18,6 +18,20 @@
           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
         );
       </script>
+    <script>
+    // Определяем язык пользователя
+    const userLang = navigator.language.slice(0, 2);
+    const availableLangs = ['ru', 'en', 'hy'];
+    
+    // Проверяем поддержку языков
+    const lang = availableLangs.includes(userLang) ? userLang : 'ru';
+    
+    // Перенаправляем (сохраняя вашу структуру именования)
+    window.location.href = `${lang}-index.html`;
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=ru-index.html">
+  </noscript>
 </head>
 <body>
     <header>
